@@ -5,3 +5,118 @@
 html {
   scroll-behavior: smooth;
 }
+
+body {
+  @apply bg-neutral-100 text-neutral-900;
+}
+
+.dark body {
+  @apply bg-neutral-950 text-neutral-100;
+}
+
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+  background:
+    radial-gradient(45rem 32rem at 15% 15%, rgba(168, 85, 247, 0.1) 0%, transparent 65%),
+    radial-gradient(40rem 28rem at 85% 85%, rgba(59, 130, 246, 0.1) 0%, transparent 65%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(15, 23, 42, 0.04) 0,
+      rgba(15, 23, 42, 0.04) 1px,
+      transparent 1px,
+      transparent 80px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(15, 23, 42, 0.04) 0,
+      rgba(15, 23, 42, 0.04) 1px,
+      transparent 1px,
+      transparent 80px
+    );
+  background-size: auto, auto, 80px 80px, 80px 80px;
+  animation: bg-pan 28s linear infinite;
+}
+
+.animated-bg::before,
+.animated-bg::after {
+  content: '';
+  position: absolute;
+  width: 36rem;
+  height: 36rem;
+  border-radius: 9999px;
+  filter: blur(50px);
+  opacity: 0.2;
+  animation: float 16s ease-in-out infinite;
+}
+
+.animated-bg::before {
+  top: -8rem;
+  left: -10rem;
+  background: radial-gradient(circle, #c4b5fd 0%, transparent 70%);
+}
+
+.animated-bg::after {
+  right: -10rem;
+  bottom: -12rem;
+  background: radial-gradient(circle, #93c5fd 0%, transparent 70%);
+  animation-delay: -8s;
+}
+
+.dark .animated-bg::before,
+.dark .animated-bg::after {
+  opacity: 0.16;
+}
+
+.dark .animated-bg {
+  background:
+    radial-gradient(45rem 32rem at 15% 15%, rgba(168, 85, 247, 0.12) 0%, transparent 65%),
+    radial-gradient(40rem 28rem at 85% 85%, rgba(59, 130, 246, 0.12) 0%, transparent 65%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(248, 250, 252, 0.05) 0,
+      rgba(248, 250, 252, 0.05) 1px,
+      transparent 1px,
+      transparent 80px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(248, 250, 252, 0.05) 0,
+      rgba(248, 250, 252, 0.05) 1px,
+      transparent 1px,
+      transparent 80px
+    );
+  background-size: auto, auto, 80px 80px, 80px 80px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  * ,
+  *::before,
+  *::after {
+    transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+    transition-duration: 240ms;
+    transition-timing-function: ease;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0) scale(1.06);
+  }
+}
+
+@keyframes bg-pan {
+  0% {
+    background-position: 0 0, 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: 0 0, 0 0, 80px 0, 0 80px;
+  }
+}

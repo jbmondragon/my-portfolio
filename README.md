@@ -1,6 +1,25 @@
-# Portfolio (Next.js + GitHub Pages)
+# Jake Mondragon Portfolio
 
-## Local development
+A personal portfolio website built with Next.js and Tailwind CSS.
+
+This site includes:
+- Home landing page
+- About page
+- Services page
+- Works page
+- Blogs page
+- Contact page
+- Light and dark mode
+- Subtle animated background
+
+## Tech Stack
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS
+
+## Run Locally
 
 ```bash
 npm install
@@ -9,35 +28,15 @@ npm run dev
 
 Open http://localhost:3000
 
-## Before deploying
+## Build
 
-1. Open `next.config.mjs` and set `repoName` to your actual GitHub repo name
-   (e.g. if your repo is `github.com/yourname/my-portfolio`, set it to `'my-portfolio'`).
-   - If your repo is named `yourname.github.io`, set `repoName` to `''` instead.
-2. Edit `app/page.tsx` and `app/layout.tsx` with your real name, projects, and links.
+```bash
+npm run build
+```
 
-## Deploy to GitHub Pages
+## Deployment
 
-1. Push this project to a new GitHub repo:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial portfolio"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/<your-repo>.git
-   git push -u origin main
-   ```
-2. In your GitHub repo, go to **Settings → Pages**.
-3. Under **Build and deployment → Source**, select **GitHub Actions**.
-4. Push to `main` (or re-run the workflow from the **Actions** tab) — the included
-   workflow at `.github/workflows/deploy.yml` will build and publish automatically.
-5. Your site will be live at:
-   - `https://<your-username>.github.io/<your-repo>/` (project repo), or
-   - `https://<your-username>.github.io/` (if the repo is named `<your-username>.github.io`)
+This project is configured for GitHub Pages static deployment.
 
-## Notes
-
-- This project uses `output: 'export'` in `next.config.mjs`, so it builds to a fully
-  static `out/` folder — no Node.js server needed on GitHub Pages.
-- Because of static export, API routes, Server Actions, and `next/image` optimization
-  are not available. Images use `unoptimized: true` instead.
+For full step-by-step deployment commands, see:
+- [README_DEPLOY.md](README_DEPLOY.md)

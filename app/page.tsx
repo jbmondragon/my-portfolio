@@ -5,7 +5,7 @@ import { contactInfo, socialLinks } from '@/lib/siteData';
 
 export default function Home() {
   return (
-    <main className="w-full min-h-[calc(100vh-76px)] flex items-center px-8 md:px-14 py-14 bg-transparent">
+    <main className="w-full min-h-[calc(100vh-112px)] md:min-h-[calc(100vh-76px)] flex items-center px-6 py-10 md:px-14 md:py-14 bg-transparent">
       <div className="relative w-full grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
         {/* left: text content */}
         <div>

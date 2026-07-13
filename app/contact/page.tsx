@@ -15,14 +15,14 @@ export default function ContactPage() {
         <div className="grid gap-10 lg:grid-cols-[1fr_1.7fr] lg:items-start">
           <section>
           <p className="text-sm font-medium italic text-neutral-500 dark:text-neutral-400">Contact</p>
-          <h1 className="mt-2 text-5xl font-bold tracking-tight text-neutral-900 dark:text-white">REACH OUT ME</h1>
+          <h1 className="mt-2 text-3xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-4xl md:text-5xl">REACH OUT ME</h1>
           <p className="mt-8 text-neutral-600 dark:text-neutral-300">{contactInfo.location}</p>
 
           <div className="mt-16 space-y-3">
-            <a href={`tel:${contactInfo.phone}`} className="block text-5xl font-extrabold tracking-tight text-neutral-900 dark:text-white">
+            <a href={`tel:${contactInfo.phone}`} className="block break-all text-3xl font-extrabold tracking-tight text-neutral-900 dark:text-white sm:text-4xl md:text-5xl">
               {contactInfo.phone}
             </a>
-            <a href={`mailto:${contactInfo.email}`} className="block text-4xl font-bold tracking-tight text-neutral-900 dark:text-white">
+            <a href={`mailto:${contactInfo.email}`} className="block break-all text-2xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-3xl md:text-4xl">
               {contactInfo.email}
             </a>
           </div>
@@ -42,8 +42,8 @@ export default function ContactPage() {
           </div>
           </section>
 
-          <section className="rounded-sm bg-gradient-to-r from-violet-500 via-rose-400 to-amber-400 p-8 text-white md:p-14">
-          <h2 className="text-5xl font-extrabold tracking-tight md:text-6xl">ANY PROJECT?</h2>
+          <section className="rounded-sm bg-gradient-to-r from-violet-500 via-rose-400 to-amber-400 p-6 text-white sm:p-8 md:p-14">
+          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-6xl">ANY PROJECT?</h2>
 
           <form className="mt-10 space-y-8">
             <div className="grid gap-6 md:grid-cols-2">

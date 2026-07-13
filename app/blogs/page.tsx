@@ -21,7 +21,7 @@ export default function BlogsPage() {
     <main className="mx-auto w-full max-w-6xl px-6 py-12 md:px-10 md:py-16">
       <div className="rounded-xl border border-neutral-200/80 bg-white/70 p-6 backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-900/60 md:p-10">
         <p className="text-center text-sm font-medium italic text-neutral-500 dark:text-neutral-400">Blog</p>
-        <h1 className="mt-2 text-center text-4xl font-bold tracking-tight text-neutral-900 dark:text-white">READ MY BLOG</h1>
+        <h1 className="mt-2 text-center text-3xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-4xl">READ MY BLOG</h1>
 
         <section className="mt-10 grid gap-8 md:grid-cols-3">
           {posts.map((post, index) => (
@@ -33,7 +33,7 @@ export default function BlogsPage() {
               </div>
 
               <p className="mt-5 text-sm italic text-neutral-500 dark:text-neutral-400">{post.date}</p>
-              <h2 className="mt-2 text-4xl font-semibold leading-tight tracking-tight text-neutral-900 transition-colors group-hover:text-neutral-700 dark:text-white dark:group-hover:text-neutral-200">
+              <h2 className="mt-2 text-2xl font-semibold leading-tight tracking-tight text-neutral-900 transition-colors group-hover:text-neutral-700 dark:text-white dark:group-hover:text-neutral-200 sm:text-3xl md:text-4xl">
                 {post.title}
               </h2>
             </article>

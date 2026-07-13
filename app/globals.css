@@ -7,10 +7,6 @@ html {
 }
 
 body {
-  @apply bg-neutral-100 text-neutral-900;
-}
-
-.dark body {
   @apply bg-neutral-950 text-neutral-100;
 }
 

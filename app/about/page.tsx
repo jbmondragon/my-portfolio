@@ -2,6 +2,8 @@ import Image from 'next/image';
 import { Phone, Mail, MapPin, Download, Quote } from 'lucide-react';
 
 export default function AboutPage() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
   return (
     <main className="mx-auto w-full max-w-6xl px-6 py-10 md:px-10 md:py-14">
       <div className="rounded-xl border border-neutral-200/80 bg-white/70 p-6 backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-900/60 md:p-10">
@@ -11,7 +13,7 @@ export default function AboutPage() {
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1.2fr]">
           <section>
             <div className="relative mx-auto h-52 w-52 overflow-hidden rounded-full border border-neutral-200 bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800 sm:h-64 sm:w-64">
-              <Image src="/src/img/img2.png" alt="Jake Mondragon" fill className="object-cover object-top" priority />
+              <Image src={`${basePath}/src/img/img2.png`} alt="Jake Mondragon" fill className="object-cover object-top" priority />
             </div>
 
             <h2 className="mt-8 text-center text-3xl font-extrabold tracking-tight sm:text-4xl">

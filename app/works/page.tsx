@@ -2,6 +2,8 @@ import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 
 export default function WorksPage() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
   const projects: Array<{
     category: string;
     title: string;
@@ -13,19 +15,19 @@ export default function WorksPage() {
       category: 'Product Analytics',
       title: 'Bubble Link',
       href: 'https://github.com/jbmondragon/BubbleLink',
-      imageSrc: '/src/img/bubblelink.png',
+      imageSrc: `${basePath}/src/img/bubblelink.png`,
       imageAlt: 'Bubblelink ',
     },
     {
       category: 'Dashboard Development',
       title: 'HRM Analytics',
-      imageSrc: '/src/img/dashboard-weeklysync.png',
+      imageSrc: `${basePath}/src/img/dashboard-weeklysync.png`,
       imageAlt: 'Weeklysync HRM analytics dashboard',
     },
     {
       category: 'Project 3',
       title: 'Kwentadoor',
-      imageSrc: '/src/img/kwentadoor.png',
+      imageSrc: `${basePath}/src/img/kwentadoor.png`,
       imageAlt: 'Kwentadoor analytics dashboard',
     },
     // {

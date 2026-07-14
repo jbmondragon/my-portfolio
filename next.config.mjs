@@ -9,6 +9,9 @@ const nextConfig = {
   images: {
     unoptimized: true, // GitHub Pages has no image optimization server
   },
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   basePath,
   assetPrefix: basePath ? `${basePath}/` : '',
 };

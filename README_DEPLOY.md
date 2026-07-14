@@ -1,17 +1,26 @@
 # GitHub Pages Deployment Guide
 
-This project is already configured for GitHub Pages deployment using GitHub Actions.
+This project is configured for GitHub Pages deployment with GitHub Actions.
 
-## 1. Verify Repository Name
+## 1. Push the repository to GitHub
 
-Open [next.config.mjs](next.config.mjs) and confirm:
+The Next.js config detects the repository name automatically during the GitHub Actions build.
 
-- `repoName = 'my-portfolio'` for project pages (`https://jbmondragon.github.io/my-portfolio/`)
-- Use `repoName = ''` only if your repo is `jbmondragon.github.io`
+- `https://<username>.github.io/<repo-name>/` works for a normal project repository
+- `https://<username>.github.io/` works when the repository itself is named `<username>.github.io`
 
-## 2. Commit and Push
+If the repository does not exist on GitHub yet, run:
 
-Run these commands from the project root:
+```bash
+git init
+git add .
+git commit -m "Initial portfolio"
+git branch -M main
+git remote add origin https://github.com/<username>/<repo-name>.git
+git push -u origin main
+```
+
+If the repository already exists, run:
 
 ```bash
 git add .
@@ -19,47 +28,40 @@ git commit -m "Prepare portfolio for GitHub Pages deployment"
 git push origin main
 ```
 
-If this is your first push for this repo, use:
+## 2. Enable GitHub Pages
 
-```bash
-git init
-git add .
-git commit -m "Initial portfolio"
-git branch -M main
-git remote add origin https://github.com/jbmondragon/my-portfolio.git
-git push -u origin main
-```
-
-## 3. Enable GitHub Pages Source
-
-In your repository on GitHub:
+In the GitHub repository:
 
 1. Go to **Settings**
 2. Open **Pages**
 3. Under **Build and deployment**, set **Source** to **GitHub Actions**
 
-## 4. Confirm Workflow
+## 3. Workflow used for deployment
 
-The workflow file is already included at:
+The workflow file is:
 
-- [.github/workflows/deploy.yml](.github/workflows/deploy.yml)
+- `.github/workflows/deploy.yml`
 
-It automatically:
+It will:
 
-1. Installs dependencies (`npm ci`)
-2. Builds static export (`npm run build`)
-3. Uploads `out/`
-4. Deploys to GitHub Pages
+1. Install dependencies with `npm ci`
+2. Build the app with `npm run build`
+3. Upload the generated `out/` folder
+4. Deploy to GitHub Pages
 
-## 5. Check Deployment URL
+## 4. Deployment URL
 
-After workflow finishes, your site will be available at:
+After the workflow finishes, your site will be available at:
 
-- `https://jbmondragon.github.io/my-portfolio/`
+- `https://<username>.github.io/<repo-name>/`
 
-## 6. Future Updates
+If the repository name is `<username>.github.io`, the URL is:
 
-For every change:
+- `https://<username>.github.io/`
+
+## 5. Future updates
+
+For every update, run:
 
 ```bash
 git add .
@@ -67,4 +69,4 @@ git commit -m "Update portfolio"
 git push origin main
 ```
 
-GitHub Actions will redeploy automatically.
+GitHub Actions will redeploy the site automatically.

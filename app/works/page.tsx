@@ -2,11 +2,19 @@ import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 
 export default function WorksPage() {
-  const projects = [
+  const projects: Array<{
+    category: string;
+    title: string;
+    href?: string;
+    imageSrc?: string;
+    imageAlt?: string;
+  }> = [
     {
       category: 'Product Analytics',
       title: 'Bubble Link',
-      imageLabel: 'Replace with your project photo (work-1)',
+      href: 'https://github.com/jbmondragon/BubbleLink',
+      imageSrc: '/src/img/bubblelink.png',
+      imageAlt: 'Bubblelink ',
     },
     {
       category: 'Dashboard Development',
@@ -23,7 +31,6 @@ export default function WorksPage() {
     // {
     //   category: 'Project 4',
     //   title: 'Bally Website Research',
-    //   imageLabel: 'Replace with your project photo (work-4)',
     // },
   ];
 
@@ -41,13 +48,25 @@ export default function WorksPage() {
                 <h2 className="mt-3 text-3xl font-bold leading-none tracking-tight text-neutral-900 dark:text-white sm:text-4xl md:text-5xl">
                   {project.title}
                 </h2>
-                <button
-                  type="button"
-                  className="mt-8 inline-flex items-center justify-center text-neutral-900 transition-transform hover:translate-x-0.5 hover:-translate-y-0.5 dark:text-white"
-                  aria-label={`Open project ${project.title}`}
-                >
-                  <ArrowUpRight size={34} strokeWidth={1.8} />
-                </button>
+                {project.href ? (
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-8 inline-flex items-center justify-center text-neutral-900 transition-transform hover:translate-x-0.5 hover:-translate-y-0.5 dark:text-white"
+                    aria-label={`Open project ${project.title}`}
+                  >
+                    <ArrowUpRight size={34} strokeWidth={1.8} />
+                  </a>
+                ) : (
+                  <button
+                    type="button"
+                    className="mt-8 inline-flex items-center justify-center text-neutral-900 transition-transform hover:translate-x-0.5 hover:-translate-y-0.5 dark:text-white"
+                    aria-label={`Open project ${project.title}`}
+                  >
+                    <ArrowUpRight size={34} strokeWidth={1.8} />
+                  </button>
+                )}
               </div>
 
               <div className="aspect-[4/3] w-full rounded-sm border border-neutral-200 bg-neutral-100 p-4 dark:border-neutral-800 dark:bg-neutral-800/70">
@@ -63,7 +82,7 @@ export default function WorksPage() {
                   </div>
                 ) : (
                   <div className="flex h-full items-center justify-center rounded-sm border border-dashed border-neutral-300 px-4 text-center text-xs font-medium uppercase tracking-[0.12em] text-neutral-500 dark:border-neutral-600 dark:text-neutral-400">
-                    {project.imageLabel}
+                    Add a project preview
                   </div>
                 )}
               </div>

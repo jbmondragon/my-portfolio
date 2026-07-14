@@ -1,8 +1,7 @@
-// If deploying to https://<username>.github.io/<repo-name>, set this to your repo name.
-// If deploying to https://<username>.github.io (a "username.github.io" repo), leave it as ''.
-const repoName = 'my-portfolio'; // <-- change this to your GitHub repo name
-
 const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
+const repositoryName = process.env.GITHUB_REPOSITORY?.split('/')[1] ?? '';
+const isUserSiteRepo = repositoryName.endsWith('.github.io');
+const basePath = isGithubActions && repositoryName && !isUserSiteRepo ? `/${repositoryName}` : '';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -10,8 +9,8 @@ const nextConfig = {
   images: {
     unoptimized: true, // GitHub Pages has no image optimization server
   },
-  basePath: isGithubActions ? `/${repoName}` : '',
-  assetPrefix: isGithubActions ? `/${repoName}/` : '',
+  basePath,
+  assetPrefix: basePath ? `${basePath}/` : '',
 };
 
 export default nextConfig;

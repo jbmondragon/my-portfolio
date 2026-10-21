@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Phone, Mail, ArrowRight } from 'lucide-react';
 import { FaLinkedinIn, FaGithub, FaFacebookF } from 'react-icons/fa';
 import HeroGraphic from '@/components/HeroGraphic';
@@ -16,20 +17,32 @@ export default function Home() {
           </h1>
 
           <p className="mt-8 max-w-xl text-base md:text-lg text-neutral-600 leading-relaxed dark:text-neutral-300">
-            Data analyst based in the Philippines, focused on clear insights, reliable metrics, and practical decision support.
+            I turn messy spreadsheets into clean databases, automated reports, and dashboards teams can act on. Computer Science
+            student at UP Tacloban, based in Leyte, Philippines.
           </p>
 
-          <button className="mt-10 inline-flex items-center gap-2 border border-neutral-900 text-neutral-900 text-xs uppercase tracking-[0.18em] px-6 py-3 hover:bg-neutral-900 hover:text-white transition-colors dark:border-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-100 dark:hover:text-neutral-900">
-            Contact
-            <ArrowRight size={14} />
-          </button>
+          <div className="mt-10 flex flex-wrap items-center gap-6">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 border border-neutral-900 text-neutral-900 text-xs uppercase tracking-[0.18em] px-6 py-3 hover:bg-neutral-900 hover:text-white transition-colors dark:border-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-100 dark:hover:text-neutral-900"
+            >
+              Contact
+              <ArrowRight size={14} />
+            </Link>
+            <Link
+              href="/works"
+              className="text-xs uppercase tracking-[0.18em] text-neutral-600 border-b border-neutral-400 pb-1 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white transition-colors"
+            >
+              See my work
+            </Link>
+          </div>
 
           <div className="mt-14 flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-neutral-600 dark:text-neutral-300">
             <a href={`tel:${contactInfo.phone}`} className="flex items-center gap-2 hover:text-neutral-900 dark:hover:text-white transition-colors">
               <span className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 dark:border-neutral-700">
                 <Phone size={11} />
               </span>
-              {contactInfo.phone}
+              {contactInfo.phoneDisplay}
             </a>
             <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-2 hover:text-neutral-900 dark:hover:text-white transition-colors">
               <span className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-neutral-300 dark:border-neutral-700">

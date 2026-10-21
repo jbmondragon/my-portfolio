@@ -3,8 +3,9 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 
 export const metadata: Metadata = {
-  title: 'Jake — Portfolio',
-  description: 'Data analyst based in the Philippines.',
+  title: 'Jake Mondragon — Data Analyst',
+  description:
+    'Jake Mondragon, data analyst and Computer Science student at UP Tacloban. Report automation, dashboards, and data cleaning.',
 };
 
 export default function RootLayout({
